@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' gallerybear.com * gap: ws: https://ssl.gstatic.com;img-src * data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+
+
+   
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+ 
+     
+       <link href="css/ratchet.min.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="css/uikit.min.css">
+          <script src="js/uikit.js"></script>
+          <script src="js/ratchet.js"></script>
+             <link rel="stylesheet" type="text/css" href="css/app.css" />
+                    <script type="text/javascript" src="cordova.js"></script>
+           
+    <title>Hello World</title>
+</head>
+
+<body>
+<header class="bar bar-nav">
+ <a class="icon icon-left-nav pull-left"  href="#"  onclick="open_left();"></a>
+  <a class="icon icon-gear pull-right"  onclick="open_right();"></a>
+  <h1 class="title">GALLERYBEAR</h1>
+</header>
+<div id="top_banner" style="height: 50px; display:none;">
+</div>
+<div id="map" data-uk-grid style="height:30%;">map loading...
+</div>
+<div id="company_list" style="overflow-y: scroll; width:100%; height:70%;  ">
+</div>
+<div id="modal-spinner" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                            <div class="uk-modal-dialog" tabindex="">
+                                <div class="uk-modal-spinner"></div>
+                            </div>
+                        </div>
+
+<div id="add_contents_uk_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2 id="add_modal_title">Loading</h2>
+                                    </div>
+                                    <p id="add_modal_contents">LOADING DATA...</p>
+                                    <div class="uk-modal-footer uk-text-right" id="modal_btn">
+                                        <button type="button" class="uk-button">Cancel</button>
+                                        <button type="button" class="uk-button uk-button-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+
+<div id="contents_uk_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2 id="modal_title">Loading</h2>
+                                    </div>
+                                    <p id="modal_contents">LOADING DATA...</p>
+                                    <div class="uk-modal-footer uk-text-right" id="contents_modal_btn" style="display:none;">
+                                        <button type="button" class="uk-button uk-modal-close">Cancel</button>
+                                        <span class="uk-button uk-button-primary" onclick="contents_delete()">DELETE</span>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+<div id="member_uk_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2 id="member_modal_title">MEMBER INFO</h2>
+                                    </div>
+                                    <p id="member_modal_contents">LOADING DATA...</p>
+                                    <div class="uk-modal-footer uk-text-right" id="member_modal_btn">
+                                        <button type="button" class="uk-button">Cancel</button>
+                                        <button type="button" class="uk-button uk-button-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+
+<div id="mypage_uk_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2 id="mypage_modal_title">MEMBER INFO</h2>
+                                    </div>
+                                    <p id="mypage_modal_contents">LOADING DATA...</p>
+                                    <div class="uk-modal-footer uk-text-right" id="member_modal_btn">
+                                        <button type="button" class="uk-button">Cancel</button>
+                                        <button type="button" class="uk-button uk-button-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+<div id="shop_uk_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2 id="shop_modal_title">SHOP INFOMATION</h2>
+                                    </div>
+                                    <p id="shop_modal_contents">LOADING DATA...</p>
+                                    <div class="uk-modal-footer uk-text-right" id="shop_modal_btn">
+                                        <button type="button" class="uk-button uk-modal-close">CLOSE</button>
+                                         
+                                    </div>
+                                </div>
+                            </div>
+
+<div id="chat_room_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" onclick="close_chat_room()"></a>
+    <h1 class="title">CHAT</h1>
+  </header>
+
+  <div class="content" style="background-color: #80D5FD;">
+    <div class="uk-grid uk-grid-small" id="chat_body" style="margin-bottom:40px;">
+    
+    
+    
+    </div> <div style="height: 50px;">
+ </div>
+
+</div><nav class="bar bar-tab">
+  <div class="uk-grid" style="line-height: 40px; width:100%;">
+    <div class="uk-width-7-10 uk-text-center">
+ <input type="hidden" name="room_no" value="" id="room_no">
+        <input type="text" class="form-control" placeholder="MESSAGE" id="chat_msg" style="margin-left:10px;" onclick="re_open_chat_room();">
+        </div>
+        <div class="uk-width-3-10 uk-text-right">
+      <a href="#" class="uk-button uk-button-danger uk-button-small" id="send_btn" onclick="save_chat();">SAVE</a><span class="uk-button uk-button-success uk-button-small" onclick="getImage('1','chat')"><i class="uk-icon-file-picture-o"></i></span>
+      </div>
+  </div>
+  </nav>
+  </div>
+
+
+
+
+<div id="member_info_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#member_info_modal"></a>
+    <h1 class="title">MEMBER INFOMATION</h1>
+  </header>
+
+  <div class="content">
+    <p class="content-padded" id="member_info_div">LOADING... CONTENTS</p>
+  </div>
+</div>
+
+
+
+<div id="contents_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#contents_modal"></a>
+    <h1 class="title" id="contents_modal_title">LOADING CONTENTS</h1>
+  </header>
+
+  <div class="content">
+    <p class="content-padded" id="contents_div">LOADING... CONTENTS</p>
+  </div>
+</div>
+<div id="make_room_job_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2>MAKE CHAT ROOM</h2>
+                                    </div>
+                                    <p id="make_room_job_modal_body" class="uk-form">
+                                                                          
+                                    </p>
+                                    <div class="uk-modal-footer uk-text-right">
+                                        <button type="button" class="uk-button uk-modal-close">Cancel</button>
+                                        <a type="button" class="uk-button uk-button-primary" onclick="make_room_job()">MAKE CHAT ROOM</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="make_room_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2>MAKE CHAT ROOM</h2>
+                                    </div>
+                                    <p id="make_room_modal_body" class="uk-form">
+                                    <input name="chat_subject" id="chat_subject" type="text">                                      
+                                    </p>
+                                    <div class="uk-modal-footer uk-text-right">
+                                        <button type="button" class="uk-button uk-modal-close">Cancel</button>
+                                        <a type="button" class="uk-button uk-button-primary" onclick="make_room()">MAKE CHAT ROOM</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+<div id="offcanvas-left" class="uk-offcanvas" aria-hidden="true" >
+                                <div class="uk-offcanvas-bar" mode="slide" id="left_menu">
+                                   
+                                </div>
+                            </div>
+<div id="offcanvas-right" class="uk-offcanvas" aria-hidden="true" >
+
+                                <div class="uk-offcanvas-bar uk-offcanvas-bar-flip" mode="push" id="right_menu">
+
+                                   
+
+                                </div>
+
+                            </div>
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+     <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+   <script type="text/javascript" src="js/marker.js"></script>
+    
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+     <script type="text/javascript" src="js/common.js"></script>
+     <script type="text/javascript" src="js/camera.js"></script>
+     <script type="text/javascript" src="js/comment.js"></script>
+     <script type="text/javascript" src="js/chat.js"></script>
+     <script type="text/javascript" src="js/right_menu.js"></script>
+     <script type="text/javascript" src="js/geo.js"></script>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIjYYnR4RImDb8X_tD1s8ud0I0KeGAKDs"></script>
+     <script>
+    var map;
+    var locations;
+    var data_app;
+     var company_name;
+    var map_kind;
+    var point_x;
+    var point_y;
+    var chicago = {lat: 41.85, lng: -87.65}; 
+    var markers = new Array();
+    var data_company=new Array();
+    var data_no=new Array();
+    var data_point_x=new Array();
+    var data_point_y=new Array();
+
+$("#company_list").scroll( function() {
+          var body_height=$("body").height();
+           console.log(mode);
+          if (mode=="main") {
+         
+          var height=$("#shop_list_body").height();
+          var top=$("#shop_list_body").offset().top;
+          var map_height=$("#map").height();
+          console.log(height+" "+body_height+" "+top+" "+map_height);
+          var var1=body_height+(top*-1)+50;
+          var var2=height-var1;
+          var var3=(body_height*-1);
+          console.log(var1+" "+var2);
+          
+          if (body_height>=var2 && var3<=var2) {
+            UIkit.modal("#modal-spinner").show();
+            var last_no=$("#last_no").val();
+            more_map_api(last_no);
+             $("#shop_list_body").ready( function() {
+            UIkit.modal("#modal-spinner").hide();
+          });
+
+            
+
+          }
+        } else if (mode=="around") {
+
+              var height=$("#member_list").height();
+          var top=$("#member_list").offset().top;
+          console.log(height+" "+body_height+" "+top);
+          var var1=body_height+(top*-1)+50;
+          var var2=height-var1;
+          var var3=(body_height*-1);
+          console.log(var1+" "+var2);
+          
+          if (0>=var2 && -50<=var2) {
+            UIkit.modal("#modal-spinner").show();
+            console.log("회원추가");
+            more_friend();
+             $("#member_list").ready( function() {
+            UIkit.modal("#modal-spinner").hide();
+          });
+
+        }
+        } else if (mode=="global") {
+
+              var height=$("#member_list").height();
+          var top=$("#member_list").offset().top;
+          console.log(height+" "+body_height+" "+top);
+          var var1=body_height+(top*-1)+50;
+          var var2=height-var1;
+          var var3=(body_height*-1);
+          console.log(var1+" "+var2);
+          
+          if (0>=var2 && -50<=var2) {
+            UIkit.modal("#modal-spinner").show();
+            console.log("회원추가2");
+            more_global();
+             $("#member_list").ready( function() {
+            UIkit.modal("#modal-spinner").hide();
+          });
+
+        }
+        }
+
+        } );
+
+// more_friend();
+//more_global();
+  
+
+     initMap();
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 5
+  });
+  var centerControlDiv = document.createElement('div');
+  var centerControl = new CenterControl(centerControlDiv, map);
+  var centerControlDiv2 = document.createElement('div');
+  var centerControl2 = new CenterControl2(centerControlDiv2, map);
+;
+ 
+  centerControlDiv.index = 1;
+  centerControlDiv2.index = 2;
+
+ 
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+ map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv2);
+ 
+
+$.ajax({
+ type: "GET",
+ url: "http://gallerybear.com/shop_json_app.php",
+ crossDomain: true,
+ cache: false,
+ success: function(result){
+ var result=$.parseJSON(result);
+
+ $.each(result, function(i, field){
+   data_company.push(field.title);
+   data_no.push(field.no);
+   data_point_y.push(field.point_y);
+   data_point_x.push(field.point_x);
+
+ 
+
+ });
+ 
+
+ marker_load();
+
+
+
+ }});
+
+
+}
+
+function count_map() {
+  console.log(data_no.length);
+}
+
+function CenterControl2(controlDiv, map, center) {
+  // We set up a variable for this since we're adding event listeners later.
+  var control = this;
+
+  // Set the center property upon construction
+  control.center_ = center;
+  controlDiv.style.clear = 'both';
+
+  // Set CSS for the control border
+  var goCenterUI = document.createElement('div');
+  goCenterUI.id = 'goCenterUI';
+  goCenterUI.title = 'Click to recenter the map';
+  goCenterUI.style.backgroundColor = '#fff';
+  goCenterUI.style.border = '0px solid #fff';
+  goCenterUI.style.borderRadius = '0px';
+  goCenterUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+  goCenterUI.style.cursor = 'pointer';
+  goCenterUI.style.marginBottom = '22px';
+  goCenterUI.style.textAlign = 'center';
+   goCenterUI.style.fontSize = '12px';
+  
+  goCenterUI.style.paddingLeft = '5px';
+  goCenterUI.style.paddingRight = '5px';
+  controlDiv.appendChild(goCenterUI);
+
+  // Set CSS for the control interior
+  var goCenterText = document.createElement('div');
+  goCenterText.id = 'goCenterText';
+  goCenterText.innerHTML = '<div onclick=add_shop()>Add MyShop</div>';
+  goCenterUI.appendChild(goCenterText);
+
+
+  // Set up the click event listener for 'Center Map': Set the center of the map
+  // to the current center of the control.
+
+
+ 
+}
+
+
+
+/**
+ * Define a property to hold the center state.
+ * @private
+ */
+CenterControl.prototype.center_ = null;
+
+/**
+ * Gets the map center.
+ * @return {?google.maps.LatLng}
+ */
+CenterControl.prototype.getCenter = function() {
+  return this.center_;
+};
+
+/**
+ * Sets the map center.
+ * @param {?google.maps.LatLng} center
+ */
+CenterControl.prototype.setCenter = function(center) {
+  this.center_ = center;
+};
+
+
+function CenterControl(controlDiv, map) {
+var map2;
+  // Set CSS for the control border.
+  var controlUI = document.createElement('div');
+  controlUI.style.backgroundColor = '#fff';
+  controlUI.style.border = '0px solid #fff';
+  controlUI.style.borderRadius = '0px';
+  controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+  controlUI.style.cursor = 'pointer';
+
+  controlUI.style.textAlign = 'center';
+  controlUI.title = 'Click to recenter the map';
+  controlDiv.appendChild(controlUI);
+
+ 
+
+
+$.post("http://gallerybear.com/map_kind_menu.php",
+   {
+  
+    
+       },
+   function(data){
+    map2=data;
+     // Set CSS for the control interior.
+  var controlText = document.createElement('div');
+  controlText.style.color = 'rgb(25,25,25)';
+  controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+  controlText.style.fontSize = '9px';
+  
+  controlText.style.paddingLeft = '5px';
+  controlText.style.paddingRight = '5px';
+  controlText.innerHTML = map2;
+  controlUI.appendChild(controlText);
+  
+
+
+   });
+   
+   
+
+ 
+
+  // Setup the click event listeners: simply set the map to Chicago.
+  controlUI.addEventListener('click', function() {
+    //map.setCenter(chicago);
+  });
+    
+}
+function add_shop() {
+	console.log("상점등록");
+	var ref = cordova.InAppBrowser.open('http://map.pridebbs.com/index2.html', '_blank', 'location=no');
+}
+
+function marker_load() {
+
+
+  
+var infowindow = new google.maps.InfoWindow();
+      var marker, i;
+  
+    for (i = 0; i < data_no.length; i++) { 
+     
+       
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(data_point_x[i], data_point_y[i]),
+        map: map
+     });
+       
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+
+          
+          infowindow.setContent("<span onclick='open_shop("+data_no[i]+")'>"+data_company[i]+"</span>");
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+        markers.push(marker);
+    }
+    var markerClusterer = new MarkerClusterer(map, markers, {
+          maxZoom: 16,
+          gridSize: 50,
+          imagePath: './images/m'
+});
+
+}
+    
+
+    function move_map(x,y) {
+      var x=x;
+      var y=y;
+      var darwin = new google.maps.LatLng(x, y);
+  map.setCenter(darwin);
+  map.setZoom(11);
+  var infowindow = new google.maps.InfoWindow({
+    content: "MY position"
+  });
+
+   
+ marker = new google.maps.Marker({
+        position: new google.maps.LatLng(x, y),
+        map: map
+     });
+
+  infowindow.open(map, marker);
+ }
+  
+
+
+
+  </script>
+ 
+
+
+
+</body>
+
+</html>
