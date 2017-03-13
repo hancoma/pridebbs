@@ -20,7 +20,7 @@ var memberuid = window.localStorage.getItem("memberuid");
 function save_gps(point_x,point_y) {
       var point_x=point_x;
       var point_y=point_y;
-      $.post("http://gallerybear.com/save_gps_app.php",
+      $.post("http://pridebbs.com/save_gps_app.php",
    {  
           memberuid:memberuid,
           point_x:point_x,

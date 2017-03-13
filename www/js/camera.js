@@ -46,7 +46,7 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
         options.chunkedMode = false;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, "http://m.gallerybear.com/upload_app.php", win, fail, options);
+        ft.upload(imageURI, "http://m.pridebbs.com/upload_app.php", win, fail, options);
     }
 
     function win(r) {

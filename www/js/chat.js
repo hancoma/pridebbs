@@ -3,7 +3,7 @@ function open_chat_room (no) {
 $("#chat_room_modal").addClass('active');
   var no=no;
    console.log(memberuid);
- $.post("http://gallerybear.com/chat_list_app.php",
+ $.post("http://pridebbs.com/chat_list_app.php",
    {
     no:no,
     memberuid:memberuid
@@ -33,7 +33,7 @@ function open_chat (no) {
 
    var no=no;
    console.log(memberuid);
- $.post("http://gallerybear.com/chat_list_app.php",
+ $.post("http://pridebbs.com/chat_list_app.php",
    {
     no:no,
     memberuid:memberuid
@@ -59,7 +59,7 @@ function save_chat() {
 		exit;
 	}
 
-		$.post("http://gallerybear.com/chat_save_app.php",
+		$.post("http://pridebbs.com/chat_save_app.php",
    {
    	room_no:room_no,
    	memberuid:memberuid,
@@ -83,7 +83,7 @@ function make_chat_open_job() {
 
     modal.show();
 
-      $.post("http://gallerybear.com/job_subject_list_app.php",
+      $.post("http://pridebbs.com/job_subject_list_app.php",
    {
     
        },
@@ -99,7 +99,7 @@ function make_room_job() {
     
   var subject=$("#list_subject").val();
 
-   $.post("http://gallerybear.com/make_room.php",
+   $.post("http://pridebbs.com/make_room.php",
    {
     uid:memberuid,
     subject:subject,
@@ -146,7 +146,7 @@ function make_room() {
     alert_msg("MESSAGE","NOT INPUT CHAT ROOM SUBJECT");
     exit;
   }
-   $.post("http://gallerybear.com/make_room.php",
+   $.post("http://pridebbs.com/make_room.php",
    {
     memberuid:memberuid,
     subject:subject,
@@ -155,7 +155,7 @@ function make_room() {
        },
    function(data){
 
-    $.post("http://gallerybear.com/chat_app.php",
+    $.post("http://pridebbs.com/chat_app.php",
    {
     
     memberuid:memberuid
@@ -175,7 +175,7 @@ make_chat_close();
 
   function delete_room(no) {
     var uid=no;
-     $.post("http://gallerybear.com/delete_room_app.php",
+     $.post("http://pridebbs.com/delete_room_app.php",
    {
     uid:uid
     
@@ -194,7 +194,7 @@ make_chat_close();
 
     function delete_room_job(no) {
     var uid=no;
-     $.post("http://gallerybear.com/delete_room_app.php",
+     $.post("http://pridebbs.com/delete_room_app.php",
    {
     uid:uid
     
@@ -217,7 +217,7 @@ make_chat_close();
   var no=no;
   var room_no=room_no;
   console.log(no+" "+room_no);
-  $.post("http://gallerybear.com/delete_chat_list_app.php",
+  $.post("http://pridebbs.com/delete_chat_list_app.php",
    {
     
     no:no
@@ -245,7 +245,7 @@ make_chat_close();
   
   }
   
-   $.post("http://gallerybear.com/check_new_chat_no_app.php",
+   $.post("http://pridebbs.com/check_new_chat_no_app.php",
    {
     
     last_no:last_no,
@@ -275,7 +275,7 @@ function reload_chat(room_no,last_no) {
   var room_no=room_no;
   var last_no=last_no;
   console.log('last_no'+last_no);
-   $.post("http://gallerybear.com/check_new_chat_app.php",
+   $.post("http://pridebbs.com/check_new_chat_app.php",
    {
     
     last_no:last_no,
@@ -301,7 +301,7 @@ function re_open_chat_room () {
   var no=$("#room_no").val();
 
    console.log(memberuid+" room_no  "+no);
- $.post("http://gallerybear.com/chat_list_app.php",
+ $.post("http://pridebbs.com/chat_list_app.php",
    {
     no:no,
     memberuid:memberuid
