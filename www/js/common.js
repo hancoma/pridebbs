@@ -32,7 +32,7 @@ function alert_msg(title,msg) {
 );
 }
 function load_left() {
-    $.post("http://gaymeninlove.com/left_menu_app.php",
+    $.post("http://pridebbs.com/left_menu_app.php",
    {
     
     
@@ -43,7 +43,7 @@ $("#left_menu").html(data);
 }
 
 function load_right() {
-    $.post("http://gaymeninlove.com/right_menu_app.php",
+    $.post("http://pridebbs.com/right_menu_app.php",
    {
     
     
@@ -55,7 +55,7 @@ $("#right_menu").html(data);
 function main_show() {
   mode="main";
  $("#company_list").height("70%");
- $.post("http://gaymeninlove.com/map_api_app.php",
+ $.post("http://pridebbs.com/map_api_app.php",
    {
     mode:mode
     
@@ -72,7 +72,7 @@ function talent_show(cat) {
   $("#company_list").height("100%");
   $("#map").hide();
   $("#top_banner").show();
- $.post("http://gaymeninlove.com/talent_list_app.php",
+ $.post("http://pridebbs.com/talent_list_app.php",
    {
     cat:cat
     
@@ -92,7 +92,7 @@ function freeboard_show(cat) {
    $("#map").hide();
   $("#top_banner").show();
   $("#top_banner").html("freeboard");
- $.post("http://gaymeninlove.com/freeboard_list_app.php",
+ $.post("http://pridebbs.com/freeboard_list_app.php",
    {
     cat:cat
     
@@ -112,7 +112,7 @@ function parade_show(cat) {
    $("#map").hide();
   $("#top_banner").show();
   $("#top_banner").html("freeboard");
- $.post("http://gaymeninlove.com/parade_list_app.php",
+ $.post("http://pridebbs.com/parade_list_app.php",
    {
     cat:cat
     
@@ -136,7 +136,7 @@ function chat_job_show(cat) {
    $("#map").hide();
   $("#top_banner").show();
   $("#top_banner").html("freeboard");
- $.post("http://gaymeninlove.com/chat_job_app.php",
+ $.post("http://pridebbs.com/chat_job_app.php",
    {
     sub_code:cat,
     memberuid:memberuid
@@ -157,7 +157,7 @@ function chat_job_show2(cat) {
    $("#map").hide();
   $("#top_banner").show();
   $("#top_banner").html("freeboard");
- $.post("http://gaymeninlove.com/chat_job_app.php",
+ $.post("http://pridebbs.com/chat_job_app.php",
    {
     sub_code:cat,
     memberuid:memberuid
@@ -176,7 +176,7 @@ function chat_show() {
     $("#map").hide();
   $("#top_banner").show();
  
-   $.post("http://gaymeninlove.com/chat_app.php",
+   $.post("http://pridebbs.com/chat_app.php",
    {
     
     memberuid:memberuid
@@ -193,7 +193,7 @@ UIkit.offcanvas.hide('#offcanvas-left');
 function chat_show2() {
   console.log(memberuid);
  
-   $.post("http://gaymeninlove.com/chat_app.php",
+   $.post("http://pridebbs.com/chat_app.php",
    {
     
     memberuid:memberuid
@@ -214,7 +214,7 @@ function friend_show() {
  mode="around";
 
   $("#company_list").height("100%");
-   $.post("http://gaymeninlove.com/around_list_app.php",
+   $.post("http://pridebbs.com/around_list_app.php",
    {
     
     
@@ -230,7 +230,7 @@ UIkit.offcanvas.hide('#offcanvas-left');
 function more_friend() {
   var last_no=$("#last_no").val();
   console.log(last_no);
-    $.post("http://gaymeninlove.com/around_list_app.php",
+    $.post("http://pridebbs.com/around_list_app.php",
    {
     last_no:last_no
     
@@ -251,7 +251,7 @@ function global_show(sub_code) {
    $("#map").hide();
   $("#top_banner").show();
   mode="global";
-   $.post("http://gaymeninlove.com/global_list_app.php",
+   $.post("http://pridebbs.com/global_list_app.php",
    {
     sub_code:sub_code
     
@@ -268,7 +268,7 @@ function more_global() {
   var last_no=$("#last_no").val();
   var sub_code=$("#sub_code").val();;
   console.log(last_no);
-    $.post("http://gaymeninlove.com/more_global_list_app.php",
+    $.post("http://pridebbs.com/more_global_list_app.php",
    {
     last_no:last_no,
     sub_code:sub_code
@@ -293,16 +293,16 @@ function premium_show(sub_code) {
   $("#company_list").height("100%");
  	console.log(sub_code);
   if (sub_code==1) {
-    var url="http://gaymeninlove.com/premium1_app.php";
+    var url="http://pridebbs.com/premium1_app.php";
   }
   if (sub_code==2) {
-    var url="http://gaymeninlove.com/premium2_app.php";
+    var url="http://pridebbs.com/premium2_app.php";
   }
   if (sub_code==3) {
-    var url="http://gaymeninlove.com/premium3_app.php";
+    var url="http://pridebbs.com/premium3_app.php";
   }
   if (sub_code==4) {
-    var url="http://gaymeninlove.com/premium4_app.php";
+    var url="http://pridebbs.com/premium4_app.php";
   }
 
    $.post(url,
@@ -330,16 +330,16 @@ function premium_search_show(sub_code,data1,data2,data3,data4) {
 
 
   	
-    var url="http://gaymeninlove.com/premium1_app.php";
+    var url="http://pridebbs.com/premium1_app.php";
   }
   if (sub_code==2) {
-    var url="http://gaymeninlove.com/premium2_app.php";
+    var url="http://pridebbs.com/premium2_app.php";
   }
   if (sub_code==3) {
-    var url="http://gaymeninlove.com/premium3_app.php";
+    var url="http://pridebbs.com/premium3_app.php";
   }
   if (sub_code==4) {
-    var url="http://gaymeninlove.com/premium4_app.php";
+    var url="http://pridebbs.com/premium4_app.php";
   }
 
    $.post(url,
@@ -394,7 +394,7 @@ function map_show(kind_no) {
   var kind_no=kind_no;
   mode="main";
   $("#company_list").height("100%");
-  var url="http://gaymeninlove.com/map_api_app.php";
+  var url="http://pridebbs.com/map_api_app.php";
   UIkit.offcanvas.hide('#offcanvas-left');
    $.post(url,
    {
@@ -412,7 +412,7 @@ $("#top_banner").hide();
 
 function more_map_api(last_no) {
   var last_no=last_no;
-  var url="http://gaymeninlove.com/map_api_more_app.php";
+  var url="http://pridebbs.com/map_api_more_app.php";
 
    $.post(url,
    {
@@ -431,13 +431,13 @@ function contents_modal_show(menu,no) {
     var no=no;
     console.log(menu+" "+no);
     if (menu=="talent") {
-      var url="http://gaymeninlove.com/talent_info_modal_app.php";
+      var url="http://pridebbs.com/talent_info_modal_app.php";
     }
     if (menu=="freeboard") {
-      var url="http://gaymeninlove.com/freeboard_info_modal_app.php";
+      var url="http://pridebbs.com/freeboard_info_modal_app.php";
     }
 if (menu=="parade") {
-      var url="http://gaymeninlove.com/parade_info_modal_app.php";
+      var url="http://pridebbs.com/parade_info_modal_app.php";
     }
 
      $.post(url,
@@ -462,7 +462,7 @@ var modal = UIkit.modal("#contents_uk_modal");
 
 function member_info_modal_show(memberuid) {
   var memberuid=memberuid;
-    $.post("http://gaymeninlove.com/member_info_modal_app.php",
+    $.post("http://pridebbs.com/member_info_modal_app.php",
    {
     no:memberuid
     
@@ -488,7 +488,7 @@ if ( modal.isActive() ) {
 
 function open_shop(no) {
   var no=no;
-    $.post("http://gaymeninlove.com/shop_info_modal_app.php",
+    $.post("http://pridebbs.com/shop_info_modal_app.php",
    {
     no:no
     
@@ -515,7 +515,7 @@ function zzim_member(uid) {
  
   var uid2=uid;
   console.log(memberuid+" "+uid2);
-   $.post("http://gaymeninlove.com/add_zzim.php",
+   $.post("http://pridebbs.com/add_zzim.php",
    {
     uid:memberuid,
     uid2:uid2
@@ -530,7 +530,7 @@ function msg_send(uid,msg) {
   var my_uid=memberuid;
   var by_uid=uid;
   var msg=msg;
-    $.post("http://gaymeninlove.com/msg_save_app.php",
+    $.post("http://pridebbs.com/msg_save_app.php",
    {
     my_uid:my_uid,
     by_uid:by_uid,
@@ -547,7 +547,7 @@ function msg_send(uid,msg) {
 function add_talent(cat) {
   var cat=cat;
   console.log("category="+cat)
-    $.post("http://gaymeninlove.com/self_camera_app.php",
+    $.post("http://pridebbs.com/self_camera_app.php",
    {
     memberuid:memberuid,
     cat:cat
@@ -571,7 +571,7 @@ var modal = UIkit.modal("#add_contents_uk_modal");
 function add_freeboard(cat) {
   var cat=cat;
   console.log("category="+cat)
-    $.post("http://gaymeninlove.com/freeboard_app.php",
+    $.post("http://pridebbs.com/freeboard_app.php",
    {
     memberuid:memberuid,
     cat:cat
@@ -595,7 +595,7 @@ var modal = UIkit.modal("#add_contents_uk_modal");
 function add_parade(cat) {
   var cat=cat;
   console.log("category="+cat)
-    $.post("http://gaymeninlove.com/parade_app.php",
+    $.post("http://pridebbs.com/parade_app.php",
    {
     memberuid:memberuid,
     cat:cat
@@ -620,7 +620,7 @@ var modal = UIkit.modal("#add_contents_uk_modal");
 function file_check(no) {
   var no=no;
   console.log(no);
-  $.post("http://gaymeninlove.com/file_check_app.php",
+  $.post("http://pridebbs.com/file_check_app.php",
    {
     memberuid:memberuid,
     no:no
@@ -637,7 +637,7 @@ function file_check(no) {
 function file_delete(no) {
   var no=no;
   console.log(no);
-  $.post("http://gaymeninlove.com/file_delete_app.php",
+  $.post("http://pridebbs.com/file_delete_app.php",
    {
     memberuid:memberuid,
     no:no
@@ -656,7 +656,7 @@ function file_delete(no) {
   var no=no;
   var no2=no2;
   console.log(mode+" "+no+" "+no2);
-  $.post("http://gaymeninlove.com/delete_comment_app.php",
+  $.post("http://pridebbs.com/delete_comment_app.php",
    {
     mode:mode,
     no:no
@@ -683,7 +683,7 @@ function delete_contents(mode,no) {
 	var mode=mode;
 	var no=no;
 	console.log(mode+" "+no);
-	$.post("http://gaymeninlove.com/delete_contents_app.php",
+	$.post("http://pridebbs.com/delete_contents_app.php",
    {
     mode:mode,
     no:no
