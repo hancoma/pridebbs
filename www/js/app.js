@@ -46,11 +46,50 @@ var app = {
     onmain : function() {
 
     main_show();
-
+    buy_item();
      navigator.geolocation.getCurrentPosition(geo_onSuccess,geo_error);
     
 }
 };
 
 
+function buy_item() {
+inAppPurchase
+  .getProducts(['com.com.gaymeninloveapp.anyphoto1_1','com.com.gaymeninloveapp.anyphoto1_2'])
+  .then(function (products) {
+    alert_msg("msg",products);
+    /*
+       [{ productId: 'com.yourapp.prod1', 'title': '...', description: '...', price: '...' }, ...]
+    */
+  })
+  .catch(function (err) {
+    alert_msg("error msg",err);
+  });
 
+ inAppPurchase
+  .restorePurchases()
+  .then(function (data) {
+    alert_msg('MSG',data);
+    /*
+      [{
+        transactionId: ...
+        productId: ...
+        state: ...
+        date: ...
+      }]
+    */
+  })
+  .catch(function (err) {
+    alert_msg('ERROR',err);
+  });
+  
+ inAppPurchase
+  .buy('com.com.gaymeninloveapp.anyphoto1_1')
+  .then(function (data) {
+    alert_msg('MSG',data);
+  })
+  .catch(function (err) {
+    alert_msg('ERROR',err);
+  });
+
+}

@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' gallerybear.com * gap: ws: https://ssl.gstatic.com;img-src * data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' pridebbs.com * gap: ws: https://ssl.gstatic.com;img-src * data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
 
 
    
@@ -27,12 +27,19 @@
 <body>
 <header class="bar bar-nav">
  <a class="icon icon-left-nav pull-left"  href="#"  onclick="open_left();"></a>
-  <a class="icon icon-gear pull-right"  onclick="open_right();"></a>
+ <a class="icon icon-gear pull-right"  onclick="open_right();"></a>
+
+  <a class="icon uk-icon-paypal pull-right "  onclick="open_ad();"><span class='uk-text-small'>ad</span></a>
   <h1 class="title">PRIDEBBS</h1>
 </header>
 <div id="top_banner" style="height: 50px; display:none;">
 </div>
-<div id="map" data-uk-grid style="height:30%;">map loading...
+<div id="map" data-uk-grid style="height:50%;">map loading...
+</div>
+<div class="uk-grid">
+<button class="uk-button uk-width-1-3 uk-button-mini uk-margin-small-bottom  uk-button-primary" onclick="map_50();" >50%</button>
+<button class="uk-button uk-width-1-3 uk-button-mini uk-margin-small-bottom  uk-button-danger" onclick="map_100();">100%</button>
+<button class="uk-button uk-width-1-3 uk-button-mini uk-margin-small-bottom  uk-button-success" onclick="add_shop();">ADD MYSHOP</button>
 </div>
 <div id="company_list" style="overflow-y: scroll; width:100%; height:70%;  ">
 </div>
@@ -115,7 +122,29 @@
                                     </div>
                                 </div>
                             </div>
+<div id="ad_center_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" onclick="close_ad_center()"></a>
+    <h1 class="title">AD CENTER</h1>
+  </header>
 
+  
+  <table class="uk-table" style="margin-top:50px;">
+    <tr>
+      <th>PREMIUM MEMBER</th>
+      <td>7DAY</td>
+      <td>$100</td>
+        <td><a href="#" class="uk-button" onclick="buy_item();">buy</a></td>
+    </tr>
+    <tr>
+      <th>PREMIUM SHOP</th>
+      <td>7DAY</td>
+      <td>$100</td>
+        <td><a href="#" class="uk-button" onclick="buy_item();">buy</a></td>
+    </tr>
+  </table>
+  
+</div>
 <div id="chat_room_modal" class="modal">
   <header class="bar bar-nav">
     <a class="icon icon-close pull-right" onclick="close_chat_room()"></a>
@@ -341,7 +370,7 @@ function initMap() {
 
 $.ajax({
  type: "GET",
- url: "http://gallerybear.com/shop_json_app.php",
+ url: "http://pridebbs.com/shop_json_app.php",
  crossDomain: true,
  cache: false,
  success: function(result){
@@ -452,7 +481,7 @@ var map2;
  
 
 
-$.post("http://gallerybear.com/map_kind_menu.php",
+$.post("http://pridebbs.com/map_kind_menu.php",
    {
   
     
