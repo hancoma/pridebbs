@@ -89,7 +89,7 @@ function login_press(user_id,password) {
     var user_id=user_id;
     var password=password;
 
-     $.post("http://gallerybear.com/login_check.php",
+     $.post("http://pridebbs.com/login_check.php",
    {
     user_id:user_id,
     password:password
@@ -104,7 +104,7 @@ function login_press(user_id,password) {
         window.localStorage.setItem("user_id", user_id);
         user_id = window.localStorage.getItem("user_id");
         console.log(user_id);
-               $.post("http://gallerybear.com/login_check_uid.php",
+               $.post("http://pridebbs.com/login_check_uid.php",
                {
                 user_id:user_id
                    },
@@ -130,7 +130,7 @@ $("#join_btn").click(
            modal.show();
 
 
- $.post("http://gallerybear.com/join_app_form.php",
+ $.post("http://pridebbs.com/join_app_form.php",
    {
  
     
@@ -183,7 +183,7 @@ $("#join_submit").click(
         
     var params = jQuery("#formname1").serialize(); // serialize() : 입력된 모든Element(을)를 문자열의 데이터에 serialize 한다.
     jQuery.ajax({
-        url: 'http://m.gallerybear.com/member_save.php',
+        url: 'http://m.pridebbs.com/member_save.php',
         type: 'POST',
         data:params,
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
