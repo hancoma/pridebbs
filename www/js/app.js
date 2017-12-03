@@ -45,8 +45,7 @@ var app = {
     },
     onmain : function() {
 
-    main_show();
-    buy_item();
+    main_rand_show(); 
      navigator.geolocation.getCurrentPosition(geo_onSuccess,geo_error);
     
 }

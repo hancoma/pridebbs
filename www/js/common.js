@@ -52,6 +52,27 @@ function load_right() {
 $("#right_menu").html(data);
    });
 }
+
+function main_rand_show() {
+ var cat=cat;
+  // 지도 숨김 
+  mode="main";
+  $("#company_list").height("100%");
+  $("#map").hide();
+  $("#top_banner").show();
+ $.post("http://pridebbs.com/main_rand_app.php",
+   {
+    cat:cat
+    
+       },
+   function(data){
+
+$("#company_list").html(data);
+  UIkit.offcanvas.hide('#offcanvas-left');
+   });
+
+}
+
 function main_show() {
   mode="main";
  $("#company_list").height("70%");
